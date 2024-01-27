@@ -237,8 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab65cdcbc899a4ed88fb7838afc4a9c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
-  camera: {fileID: 0}
+  slider: {fileID: 1728360969}
+  camera: {fileID: 519420031}
   target: {fileID: 0}
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &145155487

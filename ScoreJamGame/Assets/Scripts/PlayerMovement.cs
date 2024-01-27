@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.ComponentModel;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Leaderboard leaderboard;
+    int score;
+
     public float speed = 5f;
     
     public float maxHealth = 100;
@@ -26,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         currHealth = maxHealth;
+        score = 0;
     }
 
     void Update()
@@ -77,8 +82,13 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d.MovePosition(position);
 
         if (currHealth <= 0) {
-            Destroy(gameObject);
+            StartCoroutine(DieRoutine());
         }
+    }
+
+    IEnumerator DieRoutine() {
+        yield return leaderboard.SubmitScoreRoutine(score);
+        Destroy(gameObject);
     }
 
     public void Hit(int damage)

@@ -28,6 +28,5 @@ public class HealthBar : MonoBehaviour
         //     // Display the Game Over panel
         //     SceneManager.LoadScene("GameOverScene");
         // }
-        //test
     }
 }

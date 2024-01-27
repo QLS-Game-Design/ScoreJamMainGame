@@ -5,7 +5,7 @@ using System;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 3.0f;
+    public float speed = 5f;
     
     public float maxHealth = 100;
     public float timeInvincible = 2.0f;
@@ -30,10 +30,35 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        horizontal = 0f;
+        vertical = 0f;
 
-        Vector2 move = new Vector2(horizontal, vertical);
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            vertical = 1f;
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            vertical = -1f;
+        }
+
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            horizontal = 1f;
+        }
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            horizontal = -1f;
+        }
+
+        if (horizontal != 0 || vertical != 0)
+        {
+            speed = 5f; // Set full speed when a movement key is pressed
+        }
+        else
+        {
+            speed = 0f; // Set speed to 0 when no movement key is pressed
+        }
         
         if (isInvincible)
         {
@@ -66,6 +91,5 @@ public class PlayerMovement : MonoBehaviour
         invincibleTimer = timeInvincible;
 
         currHealth -= damage;
-        
     }
 }

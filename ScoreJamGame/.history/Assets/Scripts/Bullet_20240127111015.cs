@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float destroyDelay = 3f;
+    public float destroyDelay = 6f;
 
     void Start()
     {

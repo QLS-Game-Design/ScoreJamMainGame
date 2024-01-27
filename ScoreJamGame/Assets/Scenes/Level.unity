@@ -239,7 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1728360969}
   camera: {fileID: 519420031}
-  target: {fileID: 0}
+  target: {fileID: 70511576}
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &145155487
 GameObject:

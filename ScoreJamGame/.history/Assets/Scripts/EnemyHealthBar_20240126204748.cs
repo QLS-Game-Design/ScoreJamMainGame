@@ -8,7 +8,7 @@ public class EnemyHealthbar : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Slider slider;
-    [SerializeField] private new Camera camera;
+    [SerializeField] private Camera camera;
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset;
     public void UpdateHealthBar(float currentValue, float maxValue) {

@@ -30,12 +30,10 @@ public class EnemyScript : MonoBehaviour
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         // changes the direction of the enemy to point towrds the player
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-
-        
     }
 
     public void Die(){
-        Destroy(gameObject);
+        
     }
 
     public void TakeDamage(float damage) {

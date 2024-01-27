@@ -35,7 +35,7 @@ public class EnemyScript : MonoBehaviour
     }
 
     public void Die(){
-        Destroy(gameObject);
+
     }
 
     public void TakeDamage(float damage) {

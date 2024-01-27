@@ -31,11 +31,11 @@ public class EnemyScript : MonoBehaviour
         // changes the direction of the enemy to point towrds the player
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
-        
+        if (touc)
     }
 
     public void Die(){
-        Destroy(gameObject);
+
     }
 
     public void TakeDamage(float damage) {

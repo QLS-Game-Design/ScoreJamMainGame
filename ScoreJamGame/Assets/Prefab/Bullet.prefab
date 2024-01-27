@@ -52,6 +52,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -162,4 +164,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946df0c22df277b4780961ecd62766e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyDelay: 6
+  destroyDelay: 2

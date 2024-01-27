@@ -8,17 +8,12 @@ public class EnemyScript : MonoBehaviour
     public GameObject player;
     public float speed;
     private float distance;
-    [SerializeField] float health, maxHealth = 3f;
-    [SerializeField] EnemyHealthbar healthBar;
+    [SerializeField]
 
     public void Awake() {
-        healthBar = GetComponentInChildren<EnemyHealthbar>();
+        
     }
     // Update is called once per frame
-
-    void Start() {
-        healthBar.UpdateHealthBar(health, maxHealth);
-    }
     void Update()
     {
         distance =  Vector2.Distance(transform.position, player.transform.position);
@@ -30,17 +25,5 @@ public class EnemyScript : MonoBehaviour
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         // changes the direction of the enemy to point towrds the player
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-    }
-
-    public void Die(){
-
-    }
-
-    public void TakeDamage(float damage) {
-        health -= damage;
-        healthBar.UpdateHealthBar(health, maxHealth);
-        if (health <= -0) {
-            Die();
-        }
     }
 }

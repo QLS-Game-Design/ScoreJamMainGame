@@ -16,9 +16,7 @@ public class EnemyScript : MonoBehaviour
     }
     // Update is called once per frame
 
-    void Start() {
-        healthBar.UpdateHealthBar(health, maxHealth);
-    }
+    void Start()
     void Update()
     {
         distance =  Vector2.Distance(transform.position, player.transform.position);

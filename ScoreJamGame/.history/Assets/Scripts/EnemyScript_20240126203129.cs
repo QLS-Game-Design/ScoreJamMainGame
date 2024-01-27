@@ -15,10 +15,6 @@ public class EnemyScript : MonoBehaviour
         healthBar = GetComponentInChildren<EnemyHealthbar>();
     }
     // Update is called once per frame
-
-    void Start() {
-        healthBar.UpdateHealthBar(health, maxHealth);
-    }
     void Update()
     {
         distance =  Vector2.Distance(transform.position, player.transform.position);
@@ -33,14 +29,13 @@ public class EnemyScript : MonoBehaviour
     }
 
     public void Die(){
-
+        
     }
 
     public void TakeDamage(float damage) {
         health -= damage;
-        healthBar.UpdateHealthBar(health, maxHealth);
         if (health <= -0) {
-            Die();
+            Die
         }
     }
 }

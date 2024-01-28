@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
             {
                 enemy.TakeDamage(1);
             }
-            Debug.Log("3");
+            Debug.Log("world");
             Destroy(gameObject);
         }
     }

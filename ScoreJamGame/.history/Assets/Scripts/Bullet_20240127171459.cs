@@ -15,12 +15,12 @@ public class Bullet : MonoBehaviour
         Debug.Log("1");
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("2");
+            Debug.Log("hello");
             if (other.TryGetComponent<EnemyScript>(out EnemyScript enemy))
             {
                 enemy.TakeDamage(1);
             }
-            Debug.Log("3");
+            Debug.Log("world");
             Destroy(gameObject);
         }
     }

@@ -12,6 +12,9 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] EnemyHealthbar healthBar;
     [SerializeField] LevelingScript levelingScript;
     [SerializeField] float level = 0, maxLevel = 3f;
+    private bool touching;
+    public float hitInterval = 2;
+    float time;
 
     public void Awake() {
         healthBar = GetComponentInChildren<EnemyHealthbar>();
@@ -34,7 +37,25 @@ public class EnemyScript : MonoBehaviour
         // changes the direction of the enemy to point towrds the player
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
-        
+        time += Time.deltaTime;
+        if (touching && time >= hitInterval) {
+            time = 0.0f;
+            player.GetComponent<PlayerMovement>().Hit(30);
+            Debug.Log("Player hit by enemy");
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            touching = true;
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Player")) {
+            touching = false;
+        }
     }
 
     public void Die(){

@@ -15,6 +15,7 @@ public class EnemyScript : MonoBehaviour
 
     public void Awake() {
         healthBar = GetComponentInChildren<EnemyHealthbar>();
+        levelingScript = GetComponentInChildren<LevelingScript>();
     }
     // Update is called once per frame
 

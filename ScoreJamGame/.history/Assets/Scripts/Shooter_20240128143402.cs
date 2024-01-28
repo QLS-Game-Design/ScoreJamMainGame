@@ -20,7 +20,6 @@ public class Shooter : MonoBehaviour
         player.rotation = Quaternion.Slerp(player.rotation, playerRotation, rotationSpeed * Time.deltaTime);
 
         transform.rotation = player.rotation;
-        
         // Vector3 offset = new Vector3(0f, 0f, 0f);
         // transform.position = player.position + offset;
 

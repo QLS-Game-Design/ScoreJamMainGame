@@ -27,10 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     //sprites
     public Sprite bacteriaUp;
-    public Sprite bacteriaDown;
-    public Sprite bacteriaLeft;
-    public Sprite bacteriaRight;
-    public Sprite bacteria;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -47,23 +44,19 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             vertical = 1f;
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteriaUp;
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             vertical = -1f;
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteriaDown;
         }
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             horizontal = 1f;
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteriaRight;
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             horizontal = -1f;
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteriaLeft;
         }
 
         if (horizontal != 0 || vertical != 0)

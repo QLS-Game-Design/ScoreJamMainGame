@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             horizontal = -1f;
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteriaLeft;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteria;
         }
 
         if (horizontal != 0 || vertical != 0)

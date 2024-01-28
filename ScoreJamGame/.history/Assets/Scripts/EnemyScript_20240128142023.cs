@@ -15,11 +15,12 @@ public class EnemyScript : MonoBehaviour
 
     public void Awake() {
         healthBar = GetComponentInChildren<EnemyHealthbar>();
+        levelingScript = GetComponentInChildren<LevelingScript>();
     }
     // Update is called once per frame
 
     void Start() {
-        healthBar.UpdateHealthBar(maxHealth, maxHealth);
+        healthBar.fUpdateHealthBar(maxHealth, maxHealth);
         levelingScript.updateLevel(level, maxLevel);
     }
     void Update()

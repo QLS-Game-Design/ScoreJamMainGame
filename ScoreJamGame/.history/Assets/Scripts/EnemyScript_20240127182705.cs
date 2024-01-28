@@ -10,8 +10,6 @@ public class EnemyScript : MonoBehaviour
     private float distance;
     [SerializeField] float health, maxHealth = 10f;
     [SerializeField] EnemyHealthbar healthBar;
-    [SerializeField] LevelingScript levelingScript;
-    [SerializeField] float level = 0, maxLevel = 3f;
 
     public void Awake() {
         healthBar = GetComponentInChildren<EnemyHealthbar>();
@@ -20,7 +18,6 @@ public class EnemyScript : MonoBehaviour
 
     void Start() {
         healthBar.UpdateHealthBar(maxHealth, maxHealth);
-        levelingScript.updateLevel(level, maxLevel);
     }
     void Update()
     {
@@ -38,9 +35,8 @@ public class EnemyScript : MonoBehaviour
     }
 
     public void Die(){
-        level += 1;
-        levelingScript.updateLevel(level, maxLevel);
         Destroy(gameObject);
+        update
     }
 
     public void TakeDamage(float damage) {

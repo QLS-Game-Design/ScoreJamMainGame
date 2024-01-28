@@ -8,7 +8,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject player;
     public float speed;
     private float distance;
-    [SerializeField] float health, maxHealth = 10f;
+    [SerializeField] float health, maxHealth = 3f;
     [SerializeField] EnemyHealthbar healthBar;
 
     public void Awake() {
@@ -17,7 +17,7 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
 
     void Start() {
-        healthBar.UpdateHealthBar(maxHealth, maxHealth);
+        healthBar.UpdateHealthBar(maxHealthhealth, maxHealth);
     }
     void Update()
     {

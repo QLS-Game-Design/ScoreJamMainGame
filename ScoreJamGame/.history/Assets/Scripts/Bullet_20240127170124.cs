@@ -12,15 +12,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("test");
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag(Enemy))
         {
-            Debug.Log("hello");
             if (other.TryGetComponent<EnemyScript>(out EnemyScript enemy))
             {
                 enemy.TakeDamage(1);
             }
-            Debug.Log("world");
+            Debug.Log("hit");
             Destroy(gameObject);
         }
     }

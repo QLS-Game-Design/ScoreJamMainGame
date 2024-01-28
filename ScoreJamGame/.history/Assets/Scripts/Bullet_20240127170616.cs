@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("test");
+        Debug
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("hello");

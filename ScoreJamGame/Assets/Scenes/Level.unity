@@ -805,6 +805,10 @@ PrefabInstance:
       propertyPath: bacteriaRight
       value: 
       objectReference: {fileID: 4541298645254400636, guid: c0cfe0e8fe47948de8ad4e14f5b66743, type: 3}
+    - target: {fileID: 3727858607567199888, guid: 99ab29e4c58e55f41aad1f62a686c765, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6897998946529238708, guid: a9378c76c5f964dfca019b07e205b7f4, type: 3}
     - target: {fileID: 9213234967121837199, guid: 99ab29e4c58e55f41aad1f62a686c765, type: 3}
       propertyPath: m_Name
       value: Player

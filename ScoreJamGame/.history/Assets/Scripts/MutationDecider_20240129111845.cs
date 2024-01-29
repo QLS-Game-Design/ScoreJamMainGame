@@ -104,7 +104,6 @@ public class MutationDecider : MonoBehaviour, IPointerClickHandler
             
             
             playerMovement.currHealth += 20;
-
             Debug.Log("Health buff applied: Max Health = " + playerMovement.maxHealth + ", Current Health = " + playerMovement.currHealth);
         
     }

@@ -359,6 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 830605298}
   offset: {x: 0, y: 0, z: 0}
+  bullet: {fileID: -8835879121802510588, guid: c878d108cad7c844ba411b1b4cf0d402, type: 3}
 --- !u!1 &528466159
 GameObject:
   m_ObjectHideFlags: 0

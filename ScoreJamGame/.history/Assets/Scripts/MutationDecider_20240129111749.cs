@@ -92,7 +92,7 @@ public class MutationDecider : MonoBehaviour, IPointerClickHandler
     {
         
             
-            bullet.upgradeDamage();
+            bullet.damage += 25;
             Debug.Log("Damage buff applied: " + bullet.damage);
         }
     
@@ -104,7 +104,6 @@ public class MutationDecider : MonoBehaviour, IPointerClickHandler
             
             
             playerMovement.currHealth += 20;
-
             Debug.Log("Health buff applied: Max Health = " + playerMovement.maxHealth + ", Current Health = " + playerMovement.currHealth);
         
     }

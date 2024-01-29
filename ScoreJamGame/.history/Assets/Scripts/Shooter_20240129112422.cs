@@ -10,7 +10,11 @@ public class Shooter : MonoBehaviour
     public float bulletSpeed = 10f;
     public float rotationSpeed = 5f;
 
-    
+    public void Start() {
+        public void Start() {
+        bullet.setDamage();
+    }
+    }
     void Update()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

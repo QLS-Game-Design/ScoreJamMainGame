@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
 
     public Bullet bullet;
 
-    public void Start() {
+public void Start() {
         bullet.setDamage();
     }
     

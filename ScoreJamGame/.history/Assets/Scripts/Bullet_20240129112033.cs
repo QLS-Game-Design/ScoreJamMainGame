@@ -12,10 +12,10 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, destroyDelay);
     }
     public void setDamage() {
-        damage = 10;
+        damage = 
     }
     public void upgradeDamage() {
-        damage += 2;
+        damage += 25;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

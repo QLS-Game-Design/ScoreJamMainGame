@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
         damage = 10;
     }
     public void upgradeDamage() {
-        damage += 2;
+        damage += 1;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -88,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 position = rigidbody2d.position;
         position.x = (position.x + speed * horizontal * Time.deltaTime);
         position.y = (position.y + speed * vertical * Time.deltaTime);
-        
+        transform.rotation = camera.transform.rotation;
         rigidbody2d.MovePosition(position);
 
         if (currHealth <= 0) {

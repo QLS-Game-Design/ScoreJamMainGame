@@ -5,7 +5,6 @@ public class EnemyScript : MonoBehaviour
 {
     public GameObject player;
     public float speed;
-    public Transform targetPlayer;
     private float distance;
     [SerializeField] float health, maxHealth = 50f;
     [SerializeField] EnemyHealthbar healthBar;
@@ -61,7 +60,7 @@ public class EnemyScript : MonoBehaviour
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
             // changes the direction of the enemy to point towards the player
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-
+            transform.LookAt(player);
         }
 
         time += Time.deltaTime;

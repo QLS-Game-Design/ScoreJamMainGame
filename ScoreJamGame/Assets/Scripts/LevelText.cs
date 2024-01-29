@@ -17,7 +17,7 @@ public class LevelText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(levelingScript.getExp());
-        levelText.text = "Level: " + levelingScript.getExp().ToString();
+        // Debug.Log(levelingScript.getExp());
+        // levelText.text = "Level: " + levelingScript.getExp().ToString();
     }
 }

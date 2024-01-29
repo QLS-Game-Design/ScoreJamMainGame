@@ -7,7 +7,7 @@ using System.ComponentModel;
 public class PlayerMovement : MonoBehaviour
 {
     public Leaderboard leaderboard;
-    int score;
+    public int score;
 
     public float speed = 5f;
     

@@ -92,6 +92,7 @@ public class EnemyScript : MonoBehaviour
 
     public void Die()
     {
+        player.GetComponent<PlayerMovement>().score++;
         if (levelingScript != null)
         {
             levelingScript.currLevel += 2;

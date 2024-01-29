@@ -35,8 +35,7 @@ public class EnemyScript : MonoBehaviour
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
         if (level == maxLevel) {
-            level = 0;
-            maxLevel += 1;
+
         }
     }
 

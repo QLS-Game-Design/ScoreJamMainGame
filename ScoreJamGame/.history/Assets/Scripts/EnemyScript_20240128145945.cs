@@ -36,7 +36,7 @@ public class EnemyScript : MonoBehaviour
 
         if (level == maxLevel) {
             level = 0;
-            maxLevel += 1;
+            maxLevel
         }
     }
 

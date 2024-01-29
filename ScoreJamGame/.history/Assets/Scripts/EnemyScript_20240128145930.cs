@@ -34,10 +34,7 @@ public class EnemyScript : MonoBehaviour
         // changes the direction of the enemy to point towrds the player
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
 
-        if (level == maxLevel) {
-            level = 0;
-            maxLevel += 1;
-        }
+        if (level = maxLevel;
     }
 
     public void Die(){

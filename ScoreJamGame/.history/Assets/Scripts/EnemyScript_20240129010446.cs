@@ -29,11 +29,12 @@ public class EnemyScript : MonoBehaviour
     private IEnumerator Animation() {
         while (true)
         {
+            print("DoSomething Loop");
             this.gameObject.GetComponent<SpriteRenderer>().sprite = frameOne;
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(2f);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = frameTwo;
             // Yield execution of this coroutine and return to the main loop until next frame
-            yield return new WaitForSeconds(0.25f);
+
         }
     }
     void Update()

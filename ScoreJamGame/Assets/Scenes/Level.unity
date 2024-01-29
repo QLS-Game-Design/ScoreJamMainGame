@@ -416,17 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfc412ea8a97f4de582ea90ba61a26d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &845609090 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1288471943227530710, guid: 0b350c7ebe08fd946b77aad4c3d6dfc2, type: 3}
-  m_PrefabInstance: {fileID: 9102763450992939522}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab65cdcbc899a4ed88fb7838afc4a9c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &946888598
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,8 +448,8 @@ MonoBehaviour:
   spawnRate: 2
   enemyPrefabs:
   - {fileID: 733506417454751375, guid: 0b350c7ebe08fd946b77aad4c3d6dfc2, type: 3}
-  canSpawn: 1
-  player: {fileID: 830605293}
+  canSpawn: 0
+  speed: 0
 --- !u!4 &946888600
 Transform:
   m_ObjectHideFlags: 0
@@ -470,7 +459,7 @@ Transform:
   m_GameObject: {fileID: 946888598}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.71, y: -0.06, z: 0}
+  m_LocalPosition: {x: 0, y: 7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -554,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384399544}
   - component: {fileID: 1384399543}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1675,7 +1664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 972959461629995085, guid: 0b350c7ebe08fd946b77aad4c3d6dfc2, type: 3}
       propertyPath: m_SortingOrder
-      value: 100
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1288471943227530710, guid: 0b350c7ebe08fd946b77aad4c3d6dfc2, type: 3}
       propertyPath: camera
@@ -1686,9 +1675,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 830605293}
     - target: {fileID: 7613758798158776139, guid: 0b350c7ebe08fd946b77aad4c3d6dfc2, type: 3}
-      propertyPath: healthBar
+      propertyPath: frameOne
       value: 
-      objectReference: {fileID: 845609090}
+      objectReference: {fileID: -6610868100964551075, guid: dc1d1f41a15014700ba95d237a7cf2cb, type: 3}
+    - target: {fileID: 7613758798158776139, guid: 0b350c7ebe08fd946b77aad4c3d6dfc2, type: 3}
+      propertyPath: frameTwo
+      value: 
+      objectReference: {fileID: -2647415796496411642, guid: 4bf109646db804df49525526a85e72b9, type: 3}
     - target: {fileID: 7613758798158776139, guid: 0b350c7ebe08fd946b77aad4c3d6dfc2, type: 3}
       propertyPath: levelingScript
       value: 
@@ -1788,7 +1781,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1804,7 +1797,6 @@ SpriteRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1384399544}
   - {fileID: 7048811907703971109}
   - {fileID: 1044399705}
   - {fileID: 9102763450992939522}
@@ -1815,3 +1807,4 @@ SceneRoots:
   - {fileID: 1654327995}
   - {fileID: 2106213209}
   - {fileID: 946888600}
+  - {fileID: 1384399544}

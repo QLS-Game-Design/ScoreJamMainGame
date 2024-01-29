@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039c5b9f991a9b04b96d75f268a1c908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leaderboard: {fileID: 0}
+  leaderboard: {fileID: 4253045641472880452, guid: e4c5a8887f2a80a45aca54198c717d2b, type: 3}
   speed: 5
   maxHealth: 100
   timeInvincible: 2

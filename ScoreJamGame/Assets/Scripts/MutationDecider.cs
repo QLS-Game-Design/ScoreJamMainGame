@@ -23,7 +23,7 @@ public class MutationDecider : MonoBehaviour
     public Bullet bullet;
     public PlayerMovement playerMovement;
 
-    public GameObject mutationPanel;
+    // public GameObject mutationPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,12 +38,6 @@ public class MutationDecider : MonoBehaviour
     void RandText() {
         System.Random random = new System.Random();
         randIndex = random.Next(selections.Count);
-        foreach (MutationDecider script in scripts) {
-            if (script.randIndex == this.randIndex) {
-                RandText();
-                break;
-            }
-        }
         text.text = selections[randIndex];
     }
 
@@ -57,7 +51,7 @@ public class MutationDecider : MonoBehaviour
         } else {
             // make attack also attack around you
         }
-        mutationPanel.SetActive(false);
+        // mutationPanel.SetActive(false);
     }
 
     // Update is called once per frame

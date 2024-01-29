@@ -1,8 +1,8 @@
 using System.Collections;
-
 using UnityEngine;
 
- public class EnemySpawner : MonoBehaviour {
+public class EnemySpawner : MonoBehaviour
+{
     [SerializeField] private float spawnRate = 2.0f;
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private bool canSpawn = true;
@@ -15,10 +15,6 @@ using UnityEngine;
             Debug.LogError("No enemy prefabs assigned to spawner.");
             return;
         }
-
-
-
-
 
         StartCoroutine(Spawner());
     }
@@ -37,7 +33,22 @@ using UnityEngine;
             GameObject enemyInstance = Instantiate(enemyToSpawn, spawnPosition, Quaternion.identity);
 
             // Pass the player reference to the spawned enemy
-            enemyInstance.GetComponent<EnemyScript>().player = player;
+            if (enemyInstance != null)
+            {
+                EnemyScript enemyScript = enemyInstance.GetComponent<EnemyScript>();
+                if (enemyScript != null)
+                {
+                    enemyScript.player = player;
+                }
+                else
+                {
+                    Debug.LogWarning("EnemyScript component not found on the spawned enemy.");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Failed to spawn enemy.");
+            }
         }
     }
 }

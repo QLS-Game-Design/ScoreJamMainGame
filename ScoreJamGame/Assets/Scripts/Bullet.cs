@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         Destroy(gameObject, destroyDelay);
+        damage = 10;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

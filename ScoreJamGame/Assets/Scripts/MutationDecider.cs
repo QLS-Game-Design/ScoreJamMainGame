@@ -1,109 +1,111 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 
-public class MutationDecider : MonoBehaviour
+public class MutationDecider : MonoBehaviour, IPointerClickHandler
 {
-    public Button button;
     public TextMeshProUGUI text;
 
     public List<string> selections;
     public List<int> levels;
 
-    public List<MutationDecider> scripts;
-
-    [SerializeField]
-    int randIndex;
     public Bullet bullet;
     public PlayerMovement playerMovement;
 
-    // public GameObject mutationPanel;
-    // Start is called before the first frame update
+    private System.Random random = new System.Random();
+
     void Start()
     {
-        button = GetComponent<Button>();
         text = GetComponentInChildren<TextMeshProUGUI>();
-        allScripts<MutationDecider>();
-        selections.AddRange(new List<string>{"Damage", "Health", "Mitosis", "Around"});
-        levels.AddRange(new List<int>{0, 0, 0, 0});
         RandText();
+        playerMovement.maxHealth = 100;
+        playerMovement.currHealth = 100;
     }
 
-    void RandText() {
-        System.Random random = new System.Random();
-        randIndex = random.Next(selections.Count);
-        text.text = selections[randIndex];
-    }
-
-    public void OnPointerClick(PointerEventData pointerEventData) {
-        if (text.text == "Damage") {
-            damageBuff();
-        } else if (text.text == "Health") {
-            healthBuff();
-        } else if (text.text == "Mitosis") {
-            // add swirling balls thing
-        } else {
-            // make attack also attack around you
-        }
-        // mutationPanel.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
+    void RandText()
     {
-        
-    }
-
-    public static void allScripts<T>() where T: MutationDecider {
-		//TODO add selected to list of elements (to avoid using Find)
-		GameObject[] gos = GameObject.FindGameObjectsWithTag("MutationButton");
-		foreach (GameObject go in gos){
-			T comp = go.GetComponent<T>(); 
-			if (comp != null ) comp.scripts.Add(comp); 
-		}
-	}
-
-    public void addSelection(string selection, int level) {
-        foreach (MutationDecider script in scripts) {
-            script.selections.Add(selection);
-            script.levels.Add(level);
+        if (selections.Count > 0)
+        {
+            int randIndex = random.Next(selections.Count);
+            text.text = selections[randIndex];
+        }
+        else
+        {
+            Debug.LogWarning("Selections list is empty.");
         }
     }
 
-    public int getLevelIndex(string selection) {
-        int index = 0;
-        for (int i = 0; i < selections.Count; i++) {
-            if (selections[i] == selection) {
-                index = i;
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        string selectedMutation = text.text;
+        switch (selectedMutation)
+        {
+            case "Damage":
+                DamageBuff();
+                break;
+            case "Health":
+                HealthBuff();
+                break;
+            case "Mitosis":
+                // Add code for Mitosis mutation
+                break;
+            default:
+                break;
+        }
+
+        // Check if all mutations have been decided
+        if (AreMutationsDecided())
+        {
+            // Activate mutation panel
+            MutationPanel mutationPanel = FindObjectOfType<MutationPanel>();
+            if (mutationPanel != null)
+            {
+                mutationPanel.gameObject.SetActive(true);
             }
         }
-        return index;
     }
 
-    public void upgradeSelection(string selection) {
-        int index  = getLevelIndex(selection);
-        foreach (MutationDecider script in scripts) {
-            script.levels[index]++;
+    public void DamageBuff()
+    {
+        
+            
+            bullet.damage += 2;
+            Debug.Log("Damage buff applied: " + bullet.damage);
+        }
+    
+
+    public void HealthBuff()
+    {
+        
+        
+            
+            playerMovement.maxHealth += 20;
+            playerMovement.currHealth += 20 ;
+            Debug.Log("Health buff applied: Max Health = " + playerMovement.maxHealth + ", Current Health = " + playerMovement.currHealth);
+        
+    }
+    public void Mitosis()
+    {
+        int index = selections.IndexOf("Mitosis");
+        if (index != -1)
+        {
+            levels[index]++;
+            Debug.Log("Mitosis buff applied: " + levels[index]);
         }
     }
 
-    public void damageBuff() {
-        upgradeSelection("Damage");
-        int index = getLevelIndex("Damage");
-        bullet.damage = 10 + 10*levels[index];
+    // Check if all mutations have been decided
+    bool AreMutationsDecided()
+    {
+        foreach (int level in levels)
+        {
+            if (level == 0)
+            {
+                return false;
+            }
+        }
+        return true;
     }
-
-    public void healthBuff() {
-        int index = getLevelIndex("Health");
-        upgradeSelection("Health");
-        playerMovement.maxHealth = 100 + (20*levels[index]);
-        playerMovement.currHealth += 20*levels[index];
-    }
-
 }

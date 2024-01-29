@@ -95,7 +95,7 @@ public class EnemyScript : MonoBehaviour
         if (levelingScript != null)
         {
             levelingScript.currLevel += 2;
-            levelingScript.updateLevel();
+            levelingScript.UpdateLevel();
         }
         else
         {

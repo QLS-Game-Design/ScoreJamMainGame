@@ -1675,6 +1675,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 830605293}
     - target: {fileID: 7613758798158776139, guid: 0b350c7ebe08fd946b77aad4c3d6dfc2, type: 3}
+      propertyPath: frameOne
+      value: 
+      objectReference: {fileID: -6610868100964551075, guid: dc1d1f41a15014700ba95d237a7cf2cb, type: 3}
+    - target: {fileID: 7613758798158776139, guid: 0b350c7ebe08fd946b77aad4c3d6dfc2, type: 3}
+      propertyPath: frameTwo
+      value: 
+      objectReference: {fileID: -2647415796496411642, guid: 4bf109646db804df49525526a85e72b9, type: 3}
+    - target: {fileID: 7613758798158776139, guid: 0b350c7ebe08fd946b77aad4c3d6dfc2, type: 3}
       propertyPath: levelingScript
       value: 
       objectReference: {fileID: 830605299}
@@ -1773,7 +1781,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class EnemyHealthbar : MonoBehaviour
 {
+
     [SerializeField] private Slider slider;
+
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset;
 
@@ -26,6 +28,7 @@ public class EnemyHealthbar : MonoBehaviour
     {
         slider.value = currentValue / maxValue;
     }
+
 
     void Update()
     {

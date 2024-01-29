@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
@@ -9,24 +8,35 @@ public class EnemyScript : MonoBehaviour
     private float distance;
     [SerializeField] float health, maxHealth = 50f;
     [SerializeField] EnemyHealthbar healthBar;
-    [SerializeField] LevelingScript levelingScript;
+    private LevelingScript levelingScript; // Remove [SerializeField] attribute
     private bool touching;
     public float hitInterval = 2;
     float time;
 
     public Sprite frameOne;
     public Sprite frameTwo;
-    public void Awake() {
+
+    private void Awake()
+    {
         healthBar = GetComponentInChildren<EnemyHealthbar>();
-    }
-    // Update is called once per frame
-
-    void Start() {
-        healthBar.UpdateHealthBar(maxHealth, maxHealth);
-        StartCoroutine(Animation());
+        levelingScript = FindObjectOfType<LevelingScript>(); // Find LevelingScript component in the scene
     }
 
-    private IEnumerator Animation() {
+    void Start()
+    {
+        if (healthBar == null)
+        {
+            Debug.LogError("EnemyHealthbar component not found.");
+        }
+        else
+        {
+            healthBar.UpdateHealthBar(maxHealth, maxHealth);
+            StartCoroutine(Animation());
+        }
+    }
+
+    private IEnumerator Animation()
+    {
         while (true)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = frameOne;
@@ -36,49 +46,77 @@ public class EnemyScript : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
         }
     }
+
     void Update()
     {
-        distance =  Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - transform.position;
-        direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        if (player != null)
+        {
+            distance = Vector2.Distance(transform.position, player.transform.position);
+            Vector2 direction = player.transform.position - transform.position;
+            direction.Normalize();
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // moves the enemy towards the player
-        transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-        // changes the direction of the enemy to point towrds the player
-        transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+            // moves the enemy towards the player
+            transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
+            // changes the direction of the enemy to point towards the player
+            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+        }
 
         time += Time.deltaTime;
-        if (touching && time >= hitInterval) {
+        if (touching && time >= hitInterval)
+        {
             time = 0.0f;
-            player.GetComponent<PlayerMovement>().Hit(30);
-            Debug.Log("Player hit by enemy");
+            if (player != null && player.GetComponent<PlayerMovement>() != null)
+            {
+                player.GetComponent<PlayerMovement>().Hit(30);
+                Debug.Log("Player hit by enemy");
+            }
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
+    void OnCollisionEnter2D(Collision2D other)
+    {
         if (other.gameObject.CompareTag("Player"))
         {
             touching = true;
         }
     }
 
-    void OnCollisionExit2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Player")) {
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
             touching = false;
         }
     }
 
-    public void Die(){
-        levelingScript.currLevel += 2;
-        levelingScript.updateLevel();
+    public void Die()
+    {
+        if (levelingScript != null)
+        {
+            levelingScript.currLevel += 2;
+            levelingScript.updateLevel();
+        }
+        else
+        {
+            Debug.LogWarning("LevelingScript component not found.");
+        }
         Destroy(gameObject);
     }
 
-    public void TakeDamage(float damage) {
+    public void TakeDamage(float damage)
+    {
         health -= damage;
-        healthBar.UpdateHealthBar(health, maxHealth);
-        if (health <= 0) {
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(health, maxHealth);
+        }
+        else
+        {
+            Debug.LogWarning("EnemyHealthbar component not found.");
+        }
+        if (health <= 0)
+        {
             Die();
         }
     }

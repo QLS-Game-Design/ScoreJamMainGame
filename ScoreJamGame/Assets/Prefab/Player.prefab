@@ -160,7 +160,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 0
   m_Sprite: {fileID: -6897998946529238708, guid: a9378c76c5f964dfca019b07e205b7f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -237,7 +237,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 1.6}
+    oldSize: {x: 3.2, y: 3.2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -261,8 +261,8 @@ MonoBehaviour:
   speed: 5
   maxHealth: 100
   timeInvincible: 2
-  currHealth: -30
-  isInvincible: 1
+  currHealth: 0
+  isInvincible: 0
   rotationSpeed: 0
   bacteriaUp: {fileID: 3734817442709420292, guid: 14d0444b5bbe74dda854aa7df17ec657, type: 3}
   bacteriaDown: {fileID: 2219000097898253502, guid: 144a654069ca84cf1922fcba372381ec, type: 3}

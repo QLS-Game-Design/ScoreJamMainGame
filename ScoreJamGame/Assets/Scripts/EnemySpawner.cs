@@ -1,8 +1,8 @@
 using System.Collections;
+
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
-{
+ public class EnemySpawner : MonoBehaviour {
     [SerializeField] private float spawnRate = 2.0f;
     [SerializeField] private GameObject[] enemyPrefabs;
     [SerializeField] private bool canSpawn = true;
@@ -15,6 +15,10 @@ public class EnemySpawner : MonoBehaviour
             Debug.LogError("No enemy prefabs assigned to spawner.");
             return;
         }
+
+
+
+
 
         StartCoroutine(Spawner());
     }

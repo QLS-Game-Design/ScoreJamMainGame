@@ -6,14 +6,19 @@ using UnityEngine.UI;
 public class LevelingScript : MonoBehaviour
 {
 
+    public float currLevel;
+    public float maxLevel = 10.0f;
+
     [SerializeField] private Slider slider;
     // Start is called before the first frame update
-    public void updateLevel(float currentValue, float maxValue){
-        slider.value = currentValue / maxValue;
+    public void updateLevel(){
+        slider.value = currLevel / maxLevel;
     }
 
     // Update is called once per frame
     public void Start() {
-        updateLevel(0, 7);
+        currLevel = 0.0f;
+        updateLevel();
     }
+
 }

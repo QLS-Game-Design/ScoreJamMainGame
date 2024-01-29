@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 928557287247841581}
-  - component: {fileID: 7392940619810449669}
   - component: {fileID: 1913450767667877960}
   m_Layer: 0
   m_Name: Shooter
@@ -34,60 +33,6 @@ Transform:
   - {fileID: 5837252616274988195}
   m_Father: {fileID: 364424675795816609}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7392940619810449669
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240621953158297621}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.6132076, g: 0.6132076, b: 0.6132076, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!114 &1913450767667877960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +94,7 @@ GameObject:
   - component: {fileID: 7319826832472698272}
   - component: {fileID: 403896669104024476}
   - component: {fileID: 2543461929748057474}
+  - component: {fileID: 6139784762193076974}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -164,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9213234967121837199}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -215,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -6897998946529238708, guid: a9378c76c5f964dfca019b07e205b7f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -291,7 +237,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 3.2, y: 3.2}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -311,10 +257,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 039c5b9f991a9b04b96d75f268a1c908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leaderboard: {fileID: 0}
+  leaderboard: {fileID: 4253045641472880452, guid: e4c5a8887f2a80a45aca54198c717d2b, type: 3}
   speed: 5
   maxHealth: 100
   timeInvincible: 2
   currHealth: 0
   isInvincible: 0
   rotationSpeed: 0
+  bacteriaUp: {fileID: 3734817442709420292, guid: 14d0444b5bbe74dda854aa7df17ec657, type: 3}
+  bacteriaDown: {fileID: 2219000097898253502, guid: 144a654069ca84cf1922fcba372381ec, type: 3}
+  bacteriaLeft: {fileID: -865418372490759842, guid: d255d57cb73b740e2bf405faa5d596b8, type: 3}
+  bacteriaRight: {fileID: 4541298645254400636, guid: c0cfe0e8fe47948de8ad4e14f5b66743, type: 3}
+  bacteria: {fileID: -6897998946529238708, guid: a9378c76c5f964dfca019b07e205b7f4, type: 3}
+--- !u!114 &6139784762193076974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213234967121837199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc412ea8a97f4de582ea90ba61a26d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currLevel: 0
+  maxLevel: 10
+  slider: {fileID: 0}

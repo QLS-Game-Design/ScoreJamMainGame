@@ -98,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
         if (currHealth <= 0) {
             gameOverScript.gameOver();
             StartCoroutine(DieRoutine());
+            
         }
     }
 

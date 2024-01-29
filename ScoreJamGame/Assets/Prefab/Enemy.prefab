@@ -249,10 +249,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 3
-  health: 100
-  maxHealth: 100
+  health: 60
+  maxHealth: 60
   healthBar: {fileID: 1288471943227530710}
-  levelingScript: {fileID: 0}
   hitInterval: 2
   frameOne: {fileID: -6610868100964551075, guid: dc1d1f41a15014700ba95d237a7cf2cb, type: 3}
   frameTwo: {fileID: -2647415796496411642, guid: 4bf109646db804df49525526a85e72b9, type: 3}

@@ -96,15 +96,12 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d.MovePosition(position);
 
         if (currHealth <= 0) {
-            gameOverScript.gameOver();
             StartCoroutine(DieRoutine());
         }
     }
 
     IEnumerator DieRoutine() {
-        
         yield return leaderboard.SubmitScoreRoutine(score);
-        
         Destroy(gameObject);
     }
 

@@ -1,3 +1,6 @@
+
+using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +8,7 @@ public class LevelingScript : MonoBehaviour
 {
     public float currLevel = 0;
     public float maxLevel = 10.0f;
+    private float currExp = 0.0f;
 
     [SerializeField] private Slider slider;
     [SerializeField] private MutationPanel mutationPanel; // Reference to the MutationPanel script

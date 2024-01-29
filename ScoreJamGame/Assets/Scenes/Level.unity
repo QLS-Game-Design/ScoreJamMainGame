@@ -359,6 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 830605298}
   offset: {x: 0, y: 0, z: 0}
+  bullet: {fileID: -8835879121802510588, guid: c878d108cad7c844ba411b1b4cf0d402, type: 3}
 --- !u!1 &528466159
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +866,7 @@ PrefabInstance:
     - target: {fileID: 5403848125284196006, guid: e02db4e19438db74fab4f52ffa7f7d18, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1597815175}
+      objectReference: {fileID: 0}
     - target: {fileID: 5403848125284196006, guid: e02db4e19438db74fab4f52ffa7f7d18, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1039,7 +1040,7 @@ PrefabInstance:
     - target: {fileID: 8059397913130830993, guid: e02db4e19438db74fab4f52ffa7f7d18, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 760788941}
+      objectReference: {fileID: 0}
     - target: {fileID: 8059397913130830993, guid: e02db4e19438db74fab4f52ffa7f7d18, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -1066,10 +1067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5534686896632997261, guid: e02db4e19438db74fab4f52ffa7f7d18, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 439742367}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e02db4e19438db74fab4f52ffa7f7d18, type: 3}
 --- !u!1001 &1223144340
@@ -2573,7 +2571,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 364424675795816609, guid: 99ab29e4c58e55f41aad1f62a686c765, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1243596414}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ab29e4c58e55f41aad1f62a686c765, type: 3}
 --- !u!1001 &9102763450992939522

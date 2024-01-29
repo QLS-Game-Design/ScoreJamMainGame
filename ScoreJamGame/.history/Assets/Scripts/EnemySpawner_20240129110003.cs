@@ -50,8 +50,7 @@ public class EnemySpawner : MonoBehaviour
                 Debug.LogWarning("Failed to spawn enemy.");
             }
         }
-        if (spawnRate >= 0.5) {
-            spawnRate -= 0.01f;
-        }
+        if (spawnRate >=)
+        spawnRate -= 0.01f;
     }
 }

@@ -5,11 +5,6 @@ public class CameraFollow : MonoBehaviour
     public Transform player;
     public Vector3 offset;
 
-    public Bullet bullet;
-
-    public void Start() {
-        bullet.setDamage();
-    }
     
     void LateUpdate()
     {

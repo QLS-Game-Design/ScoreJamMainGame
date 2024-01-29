@@ -7,10 +7,10 @@ public class CameraFollow : MonoBehaviour
 
     public Bullet bullet;
 
-    public void Start() {
-        bullet.setDamage();
+
+    public Start() {
+        
     }
-    
     void LateUpdate()
     {
         if (player != null)

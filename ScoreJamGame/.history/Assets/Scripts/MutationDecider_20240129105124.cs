@@ -92,7 +92,7 @@ public class MutationDecider : MonoBehaviour, IPointerClickHandler
     {
         
             
-            bullet.upgradeDamage();
+            bullet.damage += 5;
             Debug.Log("Damage buff applied: " + bullet.damage);
         }
     

@@ -96,7 +96,6 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d.MovePosition(position);
 
         if (currHealth <= 0) {
-            gameOverScript.gameOver();
             StartCoroutine(DieRoutine());
         }
     }

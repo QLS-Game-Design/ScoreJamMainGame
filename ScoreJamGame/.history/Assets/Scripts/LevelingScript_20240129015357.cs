@@ -1,6 +1,5 @@
 
 using System;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +8,7 @@ public class LevelingScript : MonoBehaviour
 
     public float currLevel;
     public float maxLevel = 5.0f;
-    private float currExp = 0.0f;
+    private float currExp;
 
     [SerializeField] private Slider slider;
     // Start is called before the first frame update
@@ -27,11 +26,7 @@ public class LevelingScript : MonoBehaviour
     public void Start() {
         currLevel = 0.0f;
         updateLevel();
-        currExp = 0.0f;
-    }
-
-    public float getExp() {
-        return currExp;
+        
     }
 
 }

@@ -9,7 +9,7 @@ public class LevelingScript : MonoBehaviour
 
     public float currLevel;
     public float maxLevel = 5.0f;
-    private float currExp = 0.0f;
+    private float currExp;
 
     [SerializeField] private Slider slider;
     // Start is called before the first frame update
@@ -30,8 +30,8 @@ public class LevelingScript : MonoBehaviour
         currExp = 0.0f;
     }
 
-    public float getExp() {
-        return currExp;
+    public float returnExp() {
+        return getExp;
     }
 
 }

@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     public Sprite bacteriaLeft;
     public Sprite bacteriaRight;
     public Sprite bacteria;
-    public GameOverScript gameOverScript;
+    public GameOverScript game
     // Start is called before the first frame update
     void Start()
     {
@@ -96,15 +96,12 @@ public class PlayerMovement : MonoBehaviour
         rigidbody2d.MovePosition(position);
 
         if (currHealth <= 0) {
-            gameOverScript.gameOver();
             StartCoroutine(DieRoutine());
         }
     }
 
     IEnumerator DieRoutine() {
-        
         yield return leaderboard.SubmitScoreRoutine(score);
-        
         Destroy(gameObject);
     }
 

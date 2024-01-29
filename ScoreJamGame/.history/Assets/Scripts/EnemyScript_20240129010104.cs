@@ -14,8 +14,6 @@ public class EnemyScript : MonoBehaviour
     public float hitInterval = 2;
     float time;
 
-    public Sprite frameOne;
-    public Sprite frameTwo;
     public void Awake() {
         healthBar = GetComponentInChildren<EnemyHealthbar>();
     }
@@ -29,11 +27,10 @@ public class EnemyScript : MonoBehaviour
     private IEnumerator Animation() {
         while (true)
         {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = frameOne;
-            yield return new WaitForSeconds(0.25f);
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = frameTwo;
+            print("DoSomething Loop");
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteriaDown;
             // Yield execution of this coroutine and return to the main loop until next frame
-            yield return new WaitForSeconds(0.25f);
+            yield return null;
         }
     }
     void Update()

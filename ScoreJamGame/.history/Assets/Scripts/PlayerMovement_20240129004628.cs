@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public float maxHealth = 100;
     public float timeInvincible = 2.0f;
     public float currHealth;
-
     
     public bool isInvincible;
     float invincibleTimer;
@@ -54,8 +53,7 @@ public class PlayerMovement : MonoBehaviour
         {
             vertical = -1f;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteriaDown;
-        } 
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        } else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             horizontal = 1f;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteriaRight;
@@ -64,9 +62,6 @@ public class PlayerMovement : MonoBehaviour
         {
             horizontal = -1f;
             this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteriaLeft;
-        } else {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = bacteria;
-
         }
 
         if (horizontal != 0 || vertical != 0)

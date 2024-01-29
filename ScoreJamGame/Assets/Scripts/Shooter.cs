@@ -17,9 +17,9 @@ public class Shooter : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         Quaternion playerRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        player.rotation = Quaternion.Slerp(player.rotation, playerRotation, rotationSpeed * Time.deltaTime);
+        // player.rotation = Quaternion.Slerp(player.rotation, playerRotation, rotationSpeed * Time.deltaTime);
 
-        transform.rotation = player.rotation;
+        transform.rotation = Quaternion.Slerp(player.rotation, playerRotation, rotationSpeed * Time.deltaTime);
         
         // Vector3 offset = new Vector3(0f, 0f, 0f);
         // transform.position = player.position + offset;

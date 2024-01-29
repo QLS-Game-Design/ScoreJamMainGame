@@ -1,41 +1,76 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using LootLocker.Requests;
+// using UnityEngine;
+// using LootLocker;
+// using System;
 
-public class PlayerManager : MonoBehaviour
-{
-    public Leaderboard leaderboard;
+// public class LeaderboardManager : MonoBehaviour
+// {
+//     public string leaderboardKey = "YourLeaderboardKey";
+//     public int leaderboardID = 123;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(SetupRoutine());
-    }
+//     // Get the leaderboard from the top
+//     public void GetLeaderboardFromTop(int count)
+//     {
+//         LootLockerSDKManager.GetScoreList(leaderboardKey, count, 0, (response) =>
+//         {
+//             if (response.success)
+//             {
+//                 Debug.Log("Leaderboard fetched successfully");
+//                 // Process leaderboard data here
+//             }
+//             else
+//             {
+//                 Debug.LogError("Failed to fetch leaderboard: " + response.Error);
+//             }
+//         });
+//     }
 
-    IEnumerator SetupRoutine() {
-        yield return LoginRoutine();
-        yield return leaderboard.FetchTopHighScoresRoutine();
-    }
+//     // Submit a score to the leaderboard
+//     public void SubmitScore(string memberID, int score)
+//     {
+//         LootLockerSDKManager.SubmitScore(memberID, score, leaderboardID, (response) =>
+//         {
+//             if (response.success)
+//             {
+//                 Debug.Log("Score submitted successfully");
+//             }
+//             else
+//             {
+//                 Debug.LogError("Failed to submit score: " + response.Error);
+//             }
+//         });
+//     }
 
-    IEnumerator LoginRoutine() {
-        bool done = false;
-        LootLockerSDKManager.StartGuestSession((response) => {
-            if (response.success) {
-                Debug.Log("Player was logged in.");
-                PlayerPrefs.SetString("PlayerID", response.player_id.ToString());
-                done = true;
-            } else {
-                Debug.Log("Could not start session");
-                done = true;
-            }
-        });
-        yield return new WaitWhile(() => done == false);
-    }
+//     // Get a single entry on the leaderboard
+//     public void GetSingleEntry(string memberID)
+//     {
+//         LootLockerSDKManager.GetMemberRank(leaderboardKey, memberID, (response) =>
+//         {
+//             if (response.success)
+//             {
+//                 Debug.Log("Single entry fetched successfully");
+//                 // Process single entry data here
+//             }
+//             else
+//             {
+//                 Debug.LogError("Failed to fetch single entry: " + response.Error);
+//             }
+//         });
+//     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
+//     // Get specific scores for a list of members
+//     public void GetScoresForMembers(string[] memberIDs)
+//     {
+//         LootLockerSDKManager.GetByListOfMembers(leaderboardKey, memberIDs, (response) =>
+//         {
+//             if (response.success)
+//             {
+//                 Debug.Log("Scores for members fetched successfully");
+//                 // Process scores data here
+//             }
+//             else
+//             {
+//                 Debug.LogError("Failed to fetch scores for members: " + response.Error);
+//             }
+//         });
+//     }
+// }

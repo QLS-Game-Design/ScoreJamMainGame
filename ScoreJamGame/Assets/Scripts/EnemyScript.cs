@@ -1,5 +1,5 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class EnemyScript : MonoBehaviour
     private float distance;
     [SerializeField] float health, maxHealth = 50f;
     [SerializeField] EnemyHealthbar healthBar;
-    private LevelingScript levelingScript; // Remove [SerializeField] attribute
+    public EnemyCounter enemyCounter; // Reference to EnemyCounter
     private bool touching;
     public float hitInterval = 2;
     float time;
@@ -20,7 +20,7 @@ public class EnemyScript : MonoBehaviour
     private void Awake()
     {
         healthBar = GetComponentInChildren<EnemyHealthbar>();
-        levelingScript = FindObjectOfType<LevelingScript>(); // Find LevelingScript component in the scene
+        enemyCounter = FindObjectOfType<EnemyCounter>(); // Find EnemyCounter component in the scene
     }
 
     void Start()
@@ -34,6 +34,7 @@ public class EnemyScript : MonoBehaviour
             healthBar.UpdateHealthBar(maxHealth, maxHealth);
             StartCoroutine(Animation());
         }
+        
     }
 
     private IEnumerator Animation()
@@ -43,7 +44,6 @@ public class EnemyScript : MonoBehaviour
             this.gameObject.GetComponent<SpriteRenderer>().sprite = frameOne;
             yield return new WaitForSeconds(0.25f);
             this.gameObject.GetComponent<SpriteRenderer>().sprite = frameTwo;
-            // Yield execution of this coroutine and return to the main loop until next frame
             yield return new WaitForSeconds(0.25f);
         }
     }
@@ -57,11 +57,8 @@ public class EnemyScript : MonoBehaviour
             direction.Normalize();
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            // moves the enemy towards the player
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-            // changes the direction of the enemy to point towards the player
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-
         }
 
         time += Time.deltaTime;
@@ -94,7 +91,20 @@ public class EnemyScript : MonoBehaviour
 
     public void Die()
     {
-        player.GetComponent<PlayerMovement>().score++;
+        // Increment enemy count when enemy dies
+        if (enemyCounter != null)
+        {
+            enemyCounter.IncrementEnemyCount();
+        }
+
+        // Increment player's score
+        if (player != null && player.GetComponent<PlayerMovement>() != null)
+        {
+            player.GetComponent<PlayerMovement>().score++;
+        }
+
+        // Increment currLevel by 2 if levelingScript is found
+        LevelingScript levelingScript = FindObjectOfType<LevelingScript>();
         if (levelingScript != null)
         {
             levelingScript.currLevel += 2;
@@ -104,6 +114,8 @@ public class EnemyScript : MonoBehaviour
         {
             Debug.LogWarning("LevelingScript component not found.");
         }
+
+        // Destroy the enemy GameObject
         Destroy(gameObject);
     }
 

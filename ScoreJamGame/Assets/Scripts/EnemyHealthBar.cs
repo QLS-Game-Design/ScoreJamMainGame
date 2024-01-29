@@ -6,19 +6,34 @@ using UnityEngine.UI;
 
 public class EnemyHealthbar : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] private Slider slider;
-    [SerializeField] private new Camera camera;
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset;
-    public void UpdateHealthBar(float currentValue, float maxValue) {
+
+    private Camera mainCamera;
+
+    private void Start()
+    {
+        // Find the main camera dynamically
+        mainCamera = Camera.main;
+        if (mainCamera == null)
+        {
+            Debug.LogError("No main camera found in the scene.");
+        }
+    }
+
+    public void UpdateHealthBar(float currentValue, float maxValue)
+    {
         slider.value = currentValue / maxValue;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.rotation = camera.transform.rotation;
-        transform.position = target.position + offset;
+        // Only update the position and rotation if the camera is found
+        if (mainCamera != null && target != null)
+        {
+            transform.rotation = mainCamera.transform.rotation;
+            transform.position = target.position + offset;
+        }
     }
 }

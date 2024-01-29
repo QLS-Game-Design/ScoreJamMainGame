@@ -8,10 +8,9 @@ public class EnemyScript : MonoBehaviour
     public GameObject player;
     public float speed;
     private float distance;
-    [SerializeField] float health, maxHealth = 10f;
+    [SerializeField] float health, maxHealth = 50f;
     [SerializeField] EnemyHealthbar healthBar;
     [SerializeField] LevelingScript levelingScript;
-    [SerializeField] float level = 0, maxLevel = 3f;
     private bool touching;
     public float hitInterval = 2;
     float time;
@@ -23,7 +22,6 @@ public class EnemyScript : MonoBehaviour
 
     void Start() {
         healthBar.UpdateHealthBar(maxHealth, maxHealth);
-        levelingScript.updateLevel(level, maxLevel);
     }
     void Update()
     {
@@ -59,8 +57,8 @@ public class EnemyScript : MonoBehaviour
     }
 
     public void Die(){
-        level += 1;
-        levelingScript.updateLevel(level, maxLevel);
+        levelingScript.currLevel += 2;
+        levelingScript.updateLevel();
         Destroy(gameObject);
     }
 

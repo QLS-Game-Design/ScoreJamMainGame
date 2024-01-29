@@ -6,6 +6,7 @@ using TMPro;
 using System;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 
 public class MutationDecider : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class MutationDecider : MonoBehaviour
 
     [SerializeField]
     int randIndex;
+    public Bullet bullet;
+    public PlayerMovement playerMovement;
+
+    public GameObject mutationPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +45,19 @@ public class MutationDecider : MonoBehaviour
             }
         }
         text.text = selections[randIndex];
+    }
+
+    public void OnPointerClick(PointerEventData pointerEventData) {
+        if (text.text == "Damage") {
+            damageBuff();
+        } else if (text.text == "Health") {
+            healthBuff();
+        } else if (text.text == "Mitosis") {
+            // add swirling balls thing
+        } else {
+            // make attack also attack around you
+        }
+        mutationPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -80,4 +98,18 @@ public class MutationDecider : MonoBehaviour
             script.levels[index]++;
         }
     }
+
+    public void damageBuff() {
+        upgradeSelection("Damage");
+        int index = getLevelIndex("Damage");
+        bullet.damage = 10 + 10*levels[index];
+    }
+
+    public void healthBuff() {
+        int index = getLevelIndex("Health");
+        upgradeSelection("Health");
+        playerMovement.maxHealth = 100 + (20*levels[index]);
+        playerMovement.currHealth += 20*levels[index];
+    }
+
 }

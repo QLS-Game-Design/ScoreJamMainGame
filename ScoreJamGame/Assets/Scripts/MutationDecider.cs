@@ -15,13 +15,16 @@ public class MutationDecider : MonoBehaviour, IPointerClickHandler
     public PlayerMovement playerMovement;
 
     private System.Random random = new System.Random();
+    
+    public GameObject playerPrefab;
+    public GameObject player;
+    public GameObject mutationPanel;
 
     void Start()
     {
         text = GetComponentInChildren<TextMeshProUGUI>();
         RandText();
-        playerMovement.maxHealth = 100;
-        playerMovement.currHealth = 100;
+        
     }
 
     void RandText()
@@ -38,40 +41,58 @@ public class MutationDecider : MonoBehaviour, IPointerClickHandler
     }
 
     public void OnPointerClick(PointerEventData pointerEventData)
+{
+    string selectedMutation = text.text;
+    switch (selectedMutation)
     {
-        string selectedMutation = text.text;
-        switch (selectedMutation)
+        case "Damage":
+            DamageBuff();
+            break;
+        case "Health":
+            HealthBuff();
+            break;
+        case "Mitosis":
+            Mitosis();
+            break;
+        default:
+            break;
+    }
+
+    // Check if all mutations have been decided
+    if (AreMutationsDecided())
+    {
+        // Activate mutation panel
+        MutationPanel mutationScript = FindObjectOfType<MutationPanel>();
+        if (mutationPanel != null)
         {
-            case "Damage":
-                DamageBuff();
-                break;
-            case "Health":
-                HealthBuff();
-                break;
-            case "Mitosis":
-                // Add code for Mitosis mutation
-                break;
-            default:
-                break;
+            mutationPanel.SetActive(true);
         }
 
-        // Check if all mutations have been decided
-        if (AreMutationsDecided())
+        // Unfreeze time
+        Time.timeScale = 1;
+
+        // Activate player movement
+        mutationScript.TogglePlayerMovement(true);
+
+        // Deactivate mutation panel
+        mutationPanel.SetActive(false);
+
+        // Reset leveling script
+        LevelingScript levelingScript = FindObjectOfType<LevelingScript>();
+        if (levelingScript != null)
         {
-            // Activate mutation panel
-            MutationPanel mutationPanel = FindObjectOfType<MutationPanel>();
-            if (mutationPanel != null)
-            {
-                mutationPanel.gameObject.SetActive(true);
-            }
+            levelingScript.currLevel = 0;
+            levelingScript.maxLevel += 1;
         }
     }
+}
+
 
     public void DamageBuff()
     {
         
             
-            bullet.damage += 2;
+            bullet.damage += 5;
             Debug.Log("Damage buff applied: " + bullet.damage);
         }
     
@@ -81,19 +102,17 @@ public class MutationDecider : MonoBehaviour, IPointerClickHandler
         
         
             
-            playerMovement.maxHealth += 20;
-            playerMovement.currHealth += 20 ;
+            
+            playerMovement.currHealth += 20;
             Debug.Log("Health buff applied: Max Health = " + playerMovement.maxHealth + ", Current Health = " + playerMovement.currHealth);
         
     }
     public void Mitosis()
     {
-        int index = selections.IndexOf("Mitosis");
-        if (index != -1)
-        {
-            levels[index]++;
-            Debug.Log("Mitosis buff applied: " + levels[index]);
-        }
+        
+        GameObject newPlayer1 = Instantiate(playerPrefab, player.transform.position + Vector3.right * 2, Quaternion.identity);
+        GameObject newPlayer2 = Instantiate(playerPrefab, player.transform.position + Vector3.left * 2, Quaternion.identity);
+    
     }
 
     // Check if all mutations have been decided

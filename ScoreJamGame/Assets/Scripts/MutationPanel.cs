@@ -23,7 +23,7 @@ public class MutationPanel : MonoBehaviour
     }
 
     // Toggle player movement based on the specified flag
-    private void TogglePlayerMovement(bool isActive)
+    public void TogglePlayerMovement(bool isActive)
     {
         PlayerMovement playerMovement = FindObjectOfType<PlayerMovement>();
         if (playerMovement != null)

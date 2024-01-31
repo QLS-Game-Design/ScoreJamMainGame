@@ -866,7 +866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 246.65, y: 220.12}
+  m_AnchoredPosition: {x: 246.65, y: 214.29}
   m_SizeDelta: {x: 358.2197, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1080984415
@@ -2526,6 +2526,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2683633491409969820, guid: efa30b2db159612429eec10fd12137ba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -341
+      objectReference: {fileID: 0}
     - target: {fileID: 4023496112961083787, guid: efa30b2db159612429eec10fd12137ba, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -2613,6 +2617,10 @@ PrefabInstance:
     - target: {fileID: 6423877713906730335, guid: efa30b2db159612429eec10fd12137ba, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886952893712441436, guid: efa30b2db159612429eec10fd12137ba, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -341
       objectReference: {fileID: 0}
     - target: {fileID: 7888391882411910037, guid: efa30b2db159612429eec10fd12137ba, type: 3}
       propertyPath: player

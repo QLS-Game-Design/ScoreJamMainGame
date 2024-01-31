@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-        currHealth = maxHealth;
+        
         score = 0;
     }
 
